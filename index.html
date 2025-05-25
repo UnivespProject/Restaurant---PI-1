@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Restaurante - Catálogo e Reservas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Cabeçalho com logo, menu e botão login/usuário -->
+  <header class="header">
+    <img src="imagens/logo.png" alt="Logotipo do Restaurante" class="logo" />
+    <nav class="nav">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#reservas" id="reservas-tab" style="display:none;">Reservas</a></li>
+        <li><button id="btn-login" class="btn-nav">Login</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carrossel de banners -->
+  <section id="inicio" class="carousel">
+    <div class="carousel-container">
+      <div class="slide active">
+        <img src="imagens/baner 1.jpg" alt="Banner 1" />
+        <div class="caption">Ingredientes de Qualidade</div>
+      </div>
+      <div class="slide">
+        <img src="imagens/baner2.jpg" alt="Banner 2" />
+        <div class="caption">Sabor Inigualável</div>
+      </div>
+      <div class="slide">
+        <img src="imagens/baner3.jpg" alt="Banner 3" />
+        <div class="caption">Ambiente Aconchegante</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Cardápio -->
+  <section id="cardapio" class="menu-section">
+    <h2>Nosso Cardápio</h2>
+    <div class="menu-grid">
+      <button class="menu-item" onclick="mostrarCategoria('aperitivos')">Aperitivos</button>
+      <button class="menu-item" onclick="mostrarCategoria('entradas')">Entradas</button>
+      <button class="menu-item" onclick="mostrarCategoria('principais')">Pratos Principais</button>
+      <button class="menu-item" onclick="mostrarCategoria('sobremesas')">Sobremesas</button>
+      <button class="menu-item" onclick="mostrarCategoria('bebidas')">Bebidas</button>
+      <button class="menu-item" onclick="mostrarCategoria('frutos')">Frutos do Mar</button>
+    </div>
+    <div id="itens-cardapio" class="itens-cardapio"></div>
+  </section>
+
+  <!-- Seção de reservas (escondida inicialmente) -->
+  <section id="reservas" class="reservation-section" style="display:none;">
+    <h2>Reserva de Mesas</h2>
+    <table>
+      <thead>
+        <tr><th>Mesa</th><th>Status</th><th>Ação</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mesa 1</td><td>Disponível</td><td><button onclick="reservarMesa(1)">Reservar</button></td></tr>
+        <tr><td>Mesa 2</td><td>Disponível</td><td><button onclick="reservarMesa(2)">Reservar</button></td></tr>
+        <tr><td>Mesa 3</td><td>Disponível</td><td><button onclick="reservarMesa(3)">Reservar</button></td></tr>
+        <tr><td>Mesa 4</td><td>Disponível</td><td><button onclick="reservarMesa(4)">Reservar</button></td></tr>
+        <tr><td>Mesa 5</td><td>Disponível</td><td><button onclick="reservarMesa(5)">Reservar</button></td></tr>
+        <tr><td>Mesa 6</td><td>Disponível</td><td><button onclick="reservarMesa(6)">Reservar</button></td></tr>
+        <tr><td>Mesa 7</td><td>Disponível</td><td><button onclick="reservarMesa(7)">Reservar</button></td></tr>
+        <tr><td>Mesa 8</td><td>Disponível</td><td><button onclick="reservarMesa(8)">Reservar</button></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Modal Login/Cadastro -->
+  <div id="modal-login" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-modal" class="close">&times;</span>
+      <div class="tabs">
+        <button id="tab-login" class="tab active">Login</button>
+        <button id="tab-cadastro" class="tab">Cadastro</button>
+      </div>
+
+      <div id="content-login" class="tab-content">
+        <form id="form-login">
+          <label for="cpf-login">CPF:</label>
+          <input type="text" id="cpf-login" required />
+          <label for="senha-login">Senha:</label>
+          <input type="password" id="senha-login" required />
+          <button type="submit" class="btn-modal">Entrar</button>
+        </form>
+      </div>
+
+      <div id="content-cadastro" class="tab-content hidden">
+        <form id="form-cadastro">
+          <label for="nome-cadastro">Nome:</label>
+          <input type="text" id="nome-cadastro" required />
+          <label for="email-cadastro">Email:</label>
+          <input type="email" id="email-cadastro" required />
+          <label for="cpf-cadastro">CPF:</label>
+          <input type="text" id="cpf-cadastro" required />
+          <label for="telefone-cadastro">Telefone:</label>
+          <input type="tel" id="telefone-cadastro" required />
+          <div class="checkbox-container">
+            <input type="checkbox" id="aceite-politica" required />
+            <label for="aceite-politica">Aceito a política de privacidade</label>
+          </div>
+          <button type="submit" class="btn-modal">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p>&copy; 2025 Nosso Restaurante</p>
+    <address>Rua Exemplo, 123 – Cidade</address>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
